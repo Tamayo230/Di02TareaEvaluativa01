@@ -32,13 +32,18 @@ export class Tab4Page implements OnInit {
     
   }
   comprobarNumAle(){
-    if (this.numUsu == this.numAle) {
-      this.mensaje = "¡Has acertado!";
-    } else if (this.numUsu < this.numAle) {
-      this.mensaje = "Introduce un número mayor.";
-    } else {
-      this.mensaje = "Introduce un número menor.";
+    
+    //el segundo caso seria cuando el numero introducido es un numero negativo o mayor que 100
+    if (this.numAle == this.numUsu) {
+      this.mensaje = "Has acertado";   
+    }  else if (this.numUsu < 0 || this.numUsu > 100) {
+      this.mensaje = "Introduce un número entre 0 y 100";
+    } else if (this.numAle < this.numUsu) {
+      this.mensaje = "Introduce un número menor";
+    } else if (this.numAle > this.numUsu) {  
+      this.mensaje = "Introduce un número mayor";
     }
+    
   }
 
 }
