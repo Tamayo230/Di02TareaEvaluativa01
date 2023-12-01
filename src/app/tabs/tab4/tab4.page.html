@@ -7,10 +7,23 @@
     </ion-list-header>
     <ion-item>
       <ion-label>Numero</ion-label>
-      <ion-input type="number" placeholder="Introduce un número entre 0 y 100"[(ngModel)]="numUsu"></ion-input>
+      <ion-input type="number" [placeholder]="labelNumero"[(ngModel)]="numero"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label class="label-azul">Numero de intentos: </ion-label>
+      <ion-label  class="label-azul">{{numIntentos}}</ion-label>
     </ion-item>
     <ion-item *ngIf="mensaje">
-      <ion-label>{{ mensaje }}</ion-label>
+      <ion-label  class="label-verde">{{ mensaje }}</ion-label>
+    </ion-item>
+    <ion-item *ngIf="mensaje == 'enhorabuena!! Has acertado el número secreto.'">
+      <ion-button id="present-alert">¿Quieres volver a jugar?</ion-button>
+        <ion-alert
+          trigger="present-alert"
+          header="Has ganado. ¿Quieres reiniciar el juego?"
+          [buttons]="alertButtons"
+          
+        ></ion-alert>
     </ion-item>
   </ion-list>
 </ion-content>
